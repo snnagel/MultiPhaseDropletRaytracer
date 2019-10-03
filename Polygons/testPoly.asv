@@ -1,0 +1,39 @@
+close all
+
+
+%Hexagon: 
+N=5
+n1=1.51
+n2=1
+figure
+D=20
+DrawPoly(N, D);
+x0=-0.85*D/2;
+thetaIn=-5 %degrees
+
+for x0=[-D/2:.2:0]
+testRay=ray([x0, 1], [sind(thetaIn), -cosd(thetaIn)], n1, 1, [0, 0, 1]);
+
+testOut=tracePoly(testRay, N, D, n2);
+if (testOut.amplitude>0.1)
+drawRay(propogate(testOut, 5));
+end
+
+end
+
+
+for jj=1:5
+    
+  
+x0=-0.85*D/2;
+thetaIn=-5 %degrees
+
+for x0=[-D/2:.2:0]
+testRay=ray([x0, 1], [sind(thetaIn), -cosd(thetaIn)], n1, 1, [0, 0, 1]);
+
+testOut=tracePoly(testRay, N, D, n2);
+if (testOut.amplitude>0.1)
+drawRay(propogate(testOut, 5));
+end
+
+end
