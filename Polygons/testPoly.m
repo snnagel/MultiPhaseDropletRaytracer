@@ -16,7 +16,7 @@ testRay=ray([x0, 1], [sind(thetaIn), -cosd(thetaIn)], n1, 1, [0, 0, 1]);
 
 testOut=tracePoly(testRay, N, D, n2);
 if (testOut.amplitude>0.1)
-drawRay(propogate(testOut, 5));
+drawRay(propagate(testOut, 5));
 end
 
 end
@@ -41,7 +41,7 @@ testRay=ray([x0, 1], [sind(thetaIn), -cosd(thetaIn)], n1, 1, [0, 0, 1]);
 
 testOut=tracePoly(testRay, N, D, n2);
 if (testOut.amplitude>0.1)
-drawRay(propogate(testOut, 5));
+drawRay(propagate(testOut, 5));
 end
 ylim([-10, 10])
 xlim([-10, 10])

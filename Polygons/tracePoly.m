@@ -20,14 +20,14 @@ b=D/2*sin(p_angle/2);
 if (r.location(2)>0)
    [loc, norm]=rayPlaneIntersection(r, topPlane);
    if abs(loc(1))< D/2
-       r=propogate(r, loc)
+       r=propagate(r, loc)
    else
        'Ray Missed'
        return
    end   
 end
 
-%for each side does the ray hit the side? if so propogate to side and
+%for each side does the ray hit the side? if so propagate to side and
 %reflect
 intFound=false;
 for ii= 1:N
@@ -49,7 +49,7 @@ for ii= 1:N
 % tol
 
     if( not(isnan(loc(1))) && sum((loc-icenter).^2)<b^2 && abs(sum((loc-r.location).^2))>tol)
-        r=propogate(r, loc)
+        r=propagate(r, loc)
         [~, r]=refract(r, norm, n2);
         intFound=true;
         break
@@ -63,7 +63,7 @@ end
 %Does it exit?  If not recursive. 
 [loc, norm]=rayPlaneIntersection(r, topPlane);
 if abs(loc(1))< D/2
-     r=propogate(r, loc);
+     r=propagate(r, loc);
  else
      r=tracePoly( r, N, D, n2 );
 end
